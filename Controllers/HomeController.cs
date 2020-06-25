@@ -32,10 +32,10 @@ namespace dojodachi.Controllers
                 TempData["Image"] = "yodagif.gif";
                 TempData["Message"] = "You have mistreated Baby Yoda and now he ded. Your prison sentence is 30 years.";
             }
-            else if(HttpContext.Session.GetInt32("Fullness") >= 100 && HttpContext.Session.GetInt32("Happiness") >= 100 && HttpContext.Session.GetInt32("Energy") >= 100)
+            else if(HttpContext.Session.GetInt32("Fullness") >= 100 && HttpContext.Session.GetInt32("Happiness") >= 100 )
             {
                 HttpContext.Session.SetString("Status", "Win");
-                TempData["Image"] = "yodahappy.gif";
+                TempData["Image"] = "yodahappy.png";
                 TempData["Message"] = "You have treated Baby Yoda great! You win!!!";
             }
             ViewBag.status = HttpContext.Session.GetString("Status");
@@ -98,7 +98,7 @@ namespace dojodachi.Controllers
                 int luck = rand.Next(0,100);
                 if (luck <= 25)
                 {
-                    TempData["Image"] ="yodaunhappy.png";
+                    TempData["Image"] ="yodamad.gif";
                     TempData["Message"] = "You played with Baby Yoda but he didn't like it!! He lost 5 energy, no increase in happiness!";
                 }
                 else
@@ -107,7 +107,7 @@ namespace dojodachi.Controllers
                 happiness += randhappiness;
                 HttpContext.Session.SetInt32("Happiness", (int) happiness);
 
-                TempData["Image"] ="yodahappy.png";
+                TempData["Image"] ="yodaplay2.gif";
                 TempData["Message"] = $"You played with Baby Yoda and he gained {randhappiness} happiness!";
                 }
             }
@@ -133,7 +133,7 @@ namespace dojodachi.Controllers
                 HttpContext.Session.SetInt32("Meals", (int) meals);
 
                 TempData["Image"] ="yodatries.gif";
-                TempData["Message"] = $"Baby Yoda worked and he gained {randmeals} meals but lost 5 energy!";
+                TempData["Message"] = $"Baby Yoda worked and he gained {randmeals} meal(s) but lost 5 energy!";
                 
 
             }
@@ -178,7 +178,7 @@ namespace dojodachi.Controllers
             int? happiness = HttpContext.Session.GetInt32("Happiness");
             happiness -=10;
             HttpContext.Session.SetInt32("Happiness", (int) happiness);
-            TempData["Image"] ="yodamad.gif";
+            TempData["Image"] ="yodascold.png";
             TempData["Message"] = "Baby Yoda was being bad so you scolded him. He lost 10 happiness.";
             return RedirectToAction("Index");
         }
@@ -244,6 +244,37 @@ namespace dojodachi.Controllers
         {
             return View("funeral");
 
+        }
+        [HttpGet("directions")]
+        public IActionResult Directions()
+        {
+            return View("directions");
+        }
+        [HttpGet("drive")]
+        public IActionResult Drive()
+        {
+            int? happiness = HttpContext.Session.GetInt32("Happiness");
+            happiness +=5;
+            HttpContext.Session.SetInt32("Happiness", (int) happiness);
+            int? energy = HttpContext.Session.GetInt32("Energy");
+            energy -=5;
+            HttpContext.Session.SetInt32("Energy", (int) energy);
+            TempData["Image"] ="drive.png";
+            TempData["Message"] = "You took Baby Yoda for a drive! He gained 5 happiness and lost 5 energy.";
+            return RedirectToAction("Index");
+        }
+        [HttpGet("ignore")]
+        public IActionResult Ignore()
+        {
+            int? happiness = HttpContext.Session.GetInt32("Happiness");
+            happiness -=10;
+            HttpContext.Session.SetInt32("Happiness", (int) happiness);
+            int? energy = HttpContext.Session.GetInt32("Energy");
+            energy +=10;
+            HttpContext.Session.SetInt32("Energy", (int) energy);
+            TempData["Image"] ="snuggles.png";
+            TempData["Message"] = "You ignored Baby Yoda! He lost 10 happiness but gained 10 energy.";
+            return RedirectToAction("Index");
         }
 
        

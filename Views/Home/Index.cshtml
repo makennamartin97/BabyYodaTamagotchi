@@ -29,9 +29,9 @@
                 </div>
                 <div>
                     @if(ViewBag.Status == "Win")
-                      {
-                        <a href="/reset"><button>Play Again</button></a>
-                      }
+                    {
+                        <a href="/reset"><button class="bg-primary text-white">Play Again</button></a>
+                    }
                     @if(ViewBag.Status == "Lose")
                     {
                         <a href="/reset"><button class="bg-dark text-white">Bury his body and restart</button></a>
@@ -49,6 +49,8 @@
                       <a href="/punish"><button class="btn btn-primary m-2">Punish</button></a>
                       <a href="/socialize"><button class="btn btn-info m-2">Socialize</button></a>
                       <a href="/reward"><button class="btn btn-primary m-2">Treats</button></a>
+                      <a href="/ignore"><button class="btn btn-primary m-2">Ignore</button></a>
+                      <a href="/drive"><button class="btn btn-info m-2">Go on drive</button></a>
                       <a href="/love"><button class="btn btn-danger m-2">Give him love</button></a>
 
                     }

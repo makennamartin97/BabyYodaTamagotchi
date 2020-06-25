@@ -27,3 +27,4 @@
 /Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/obj/Debug/netcoreapp2.2/dojodachi.pdb
 /Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/obj/Debug/netcoreapp2.2/dojodachi.csproj.CopyComplete
 /Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/funeral.g.cshtml.cs
+/Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/directions.g.cshtml.cs

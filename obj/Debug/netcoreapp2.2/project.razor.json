@@ -2966,6 +2966,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/Views/Home/directions.cshtml",
+      "TargetPath": "Views\\Home\\directions.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/makennamartin97/Documents/coding_dojo/csharpstack/dojodachi/Views/Home/funeral.cshtml",
       "TargetPath": "Views\\Home\\funeral.cshtml",
       "FileKind": "mvc"
