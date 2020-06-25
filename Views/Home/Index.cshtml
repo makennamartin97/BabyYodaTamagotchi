@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .col-7{
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .card {
+        border-radius: 10px;
+    }
+    .card{
+        border: 2px solid black;
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col-5 ">
+        <div class="card text-center">
+            <h2 class="card-title bg-dark text-white">Stats:</h2>
+            <div class="flex-columm">
+                <div>
+                    <p>Meals: @ViewBag.Meals</p>
+                    <p>Energy: @ViewBag.Energy</p> <progress id="file" value=@ViewBag.Energy max="100"></progress>
+                    <p>Fullness: @ViewBag.Fullness</p> <progress id="file" value= @ViewBag.Fullness max="100"></progress>
+                    <p>Happiness: @ViewBag.Happiness</p> <progress id="file" value=@ViewBag.Happiness max="100"></progress>
+                </div>
+                <div>
+                    @if(ViewBag.Status == "Win")
+                      {
+                        <a href="/reset"><button>Play Again</button></a>
+                      }
+                    @if(ViewBag.Status == "Lose")
+                    {
+                        <a href="/reset"><button class="bg-dark text-white">Bury his body and restart</button></a>
+                        <a href="/funeral"><button class="bg-warning">Attend his funeral</button></a>
+                        
+                    }
+                    else
+                    {                        
+                      <a href="/feed"><button class="btn btn-danger m-2">Feed</button></a>
+                      <a href="/play"><button class="btn btn-primary m-2">Play</button></a>
+                      <a href="/work"><button class="btn btn-info m-2">Work</button></a>
+                      <a href="/rest"><button class="btn btn-warning m-2">Rest</button></a>
+                      <a href="/walk"><button class="btn btn-info m-2">Walk</button></a>
+                      <a href="/fight"><button class="btn btn-warning m-2">Challenge</button></a>
+                      <a href="/punish"><button class="btn btn-primary m-2">Punish</button></a>
+                      <a href="/socialize"><button class="btn btn-info m-2">Socialize</button></a>
+                      <a href="/reward"><button class="btn btn-primary m-2">Treats</button></a>
+                      <a href="/love"><button class="btn btn-danger m-2">Give him love</button></a>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-7 text-center bg-info">
+        <img class="img-fluid" src="~/img/@ViewBag.image" alt="" style="height: 455px;"/>
+        <h3 class="m-3 text-white">@ViewBag.message</h3>
+    </div>
+</div>
+
+    
+            
